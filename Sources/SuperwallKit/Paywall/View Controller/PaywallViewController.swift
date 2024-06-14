@@ -96,7 +96,7 @@ public class PaywallViewController: UIViewController, LoadingDelegate {
 
   /// The background color of the paywall, depending on whether the device is in dark mode.
   private var backgroundColor: UIColor {
-    #if !os(VisionOS)
+    #if !os(visionOS)
     let style = UIScreen.main.traitCollection.userInterfaceStyle
     switch style {
     case .dark:
