@@ -96,6 +96,7 @@ public class PaywallViewController: UIViewController, LoadingDelegate {
 
   /// The background color of the paywall, depending on whether the device is in dark mode.
   private var backgroundColor: UIColor {
+    #if !os(VisionOS)
     let style = UIScreen.main.traitCollection.userInterfaceStyle
     switch style {
     case .dark:
@@ -103,6 +104,9 @@ public class PaywallViewController: UIViewController, LoadingDelegate {
     default:
       return paywall.backgroundColor
     }
+    #else
+    return paywall.backgroundColor
+    #endif
   }
 
   /// A loading spinner that appears when making a purchase.
